@@ -28,6 +28,7 @@ public class User implements IUser{
 		this.point=0;
 	}
 
+
 	public Language getChoosenLanguage() {
 		return choosenLanguage;
 	}
@@ -50,6 +51,14 @@ public class User implements IUser{
 	
 	public int getNumberOfQuizzesTake() {
 		return numberOfQuizzesTake;
+	}
+	
+	public int getCurrentUnitNumber() {
+		return currentUnitNumber;
+	}
+
+	public void setCurrentUnitNumber(int currentUnitNumber) {
+		this.currentUnitNumber = currentUnitNumber;
 	}
 }
 
