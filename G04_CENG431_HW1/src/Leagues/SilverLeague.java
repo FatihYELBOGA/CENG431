@@ -1,5 +1,5 @@
 package Leagues;
 
-public class SilverLeague {
+public class SilverLeague extends League {
 
 }

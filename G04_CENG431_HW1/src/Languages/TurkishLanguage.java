@@ -1,5 +1,5 @@
 package Languages;
 
-public class TurkishLanguage {
+public class TurkishLanguage extends Language{
 
 }

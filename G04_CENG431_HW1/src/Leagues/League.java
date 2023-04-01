@@ -1,5 +1,5 @@
 package Leagues;
 
-public class League {
+public abstract class League {
 
 }

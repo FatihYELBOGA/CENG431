@@ -1,5 +1,5 @@
 package Languages;
 
-public class SpanishLanguage {
+public class SpanishLanguage extends Language{
 
 }

@@ -1,5 +1,5 @@
 package Leagues;
 
-public class RubyLeague {
+public class RubyLeague extends League {
 
 }

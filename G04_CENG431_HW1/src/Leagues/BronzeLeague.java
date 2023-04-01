@@ -1,5 +1,5 @@
 package Leagues;
 
-public class BronzeLeague {
+public class BronzeLeague extends League {
 
 }
