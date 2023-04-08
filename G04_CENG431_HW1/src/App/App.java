@@ -134,7 +134,7 @@ public class App {
 		User userMax=new User(null, null,null, null, 0, 0);
 		for (User user : users) {
 			if(user.getChoosenLanguage().getName().equals(LanguageName.German)) {
-				if(user.getPoint()>userMax.getPoint()) {
+				if(user.getCurrentUnitNumber()>userMax.getCurrentUnitNumber()) {
 					userMax=user;
 				}
 			}
