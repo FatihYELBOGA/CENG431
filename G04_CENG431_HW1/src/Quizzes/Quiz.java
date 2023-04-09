@@ -2,7 +2,9 @@ package Quizzes;
 
 import java.util.ArrayList;
 
+import QuestionTypes.QuestionType;
 import Questions.Question;
+import Random.RandomGenerator;
 
 public class Quiz {
 
@@ -73,5 +75,17 @@ public class Quiz {
 		}
 		return stringBuilder.substring(0, stringBuilder.length()-1);
 
+	}
+	public ArrayList<Question> generateQuestionsOfQuizz(RandomGenerator randomGenerator){
+
+		int questionCount= randomGenerator.generateRandomInterval(8, 15);
+
+		ArrayList<Question> questions=new ArrayList<>();
+
+		for(int i=0;i<questionCount;i++) {
+			QuestionType questionType=randomGenerator.generateRandomQuestionType();
+			questions.add(new Question(questionType));
+		}
+		return questions;
 	}
 }

@@ -40,7 +40,7 @@ public class Unit {
 	
 	public void setQuestionsRandomly(RandomGenerator randomGenerator) {
 		for (Quiz quiz : quizzes) {
-			ArrayList<Question> questions=generateQuestionsOfQuizz(randomGenerator);
+			ArrayList<Question> questions=quiz.generateQuestionsOfQuizz(randomGenerator);
 			
 			quiz.setQuestions(questions);
 		}
@@ -62,17 +62,6 @@ public class Unit {
 		return stringBuilder.substring(0, stringBuilder.length());
 	}
 	
-	private ArrayList<Question> generateQuestionsOfQuizz(RandomGenerator randomGenerator){
-		
-		int questionCount= randomGenerator.generateRandomInterval(8, 15);
-		
-		ArrayList<Question> questions=new ArrayList<>();
-		
-		for(int i=0;i<questionCount;i++) {
-			QuestionType questionType=randomGenerator.generateRandomQuestionType();
-			questions.add(new Question(questionType));
-		}
-		return questions;
-	}
+
 
 }
