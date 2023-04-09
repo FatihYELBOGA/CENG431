@@ -55,11 +55,11 @@ public class App {
 		for (League league : leagues) {
 			if(league.getName().equals(leagueLow)) {
 				ArrayList<User> users=league.rankUpAndRemoveUsers();
-				League silverLeague=findLeagueByNameAndLanguage(leagues, league.getLanguageName(), leagueHigh);
+				League highLeague=findLeagueByNameAndLanguage(leagues, league.getLanguageName(), leagueHigh);
 				for (User user : users) {
-					silverLeague.addUserToLeague(user);
+					highLeague.addUserToLeague(user);
 				}
-				silverLeague.sortLeaderBoard();
+				highLeague.sortLeaderBoard();
 			}
 		}
 	}
