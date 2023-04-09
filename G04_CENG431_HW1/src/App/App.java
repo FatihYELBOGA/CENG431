@@ -45,17 +45,17 @@ public class App {
 		for (League league : leagues) {
 			league.sortLeaderBoard();
 		}
-		rankUpBronzeToSilver(leagues);
-		rankUpSilverToGold(leagues);
-		rankUpGoldToSapphire(leagues);
-		rankUpSapphireToRubby(leagues);
+		rankUpLeague(leagues,LeagueName.Bronze,LeagueName.Silver);
+		rankUpLeague(leagues,LeagueName.Silver,LeagueName.Gold);
+		rankUpLeague(leagues,LeagueName.Gold,LeagueName.Sapphire);
+		rankUpLeague(leagues,LeagueName.Sapphire,LeagueName.Ruby);
 	}
 	
-	private void rankUpBronzeToSilver(ArrayList<League> leagues) {
+	private void rankUpLeague(ArrayList<League> leagues,LeagueName leagueLow,LeagueName leagueHigh) {
 		for (League league : leagues) {
-			if(league.getName().equals(LeagueName.Bronze)) {
+			if(league.getName().equals(leagueLow)) {
 				ArrayList<User> users=league.rankUpAndRemoveUsers();
-				League silverLeague=findLeagueByNameAndLanguage(leagues, league.getLanguageName(), LeagueName.Silver);
+				League silverLeague=findLeagueByNameAndLanguage(leagues, league.getLanguageName(), leagueHigh);
 				for (User user : users) {
 					silverLeague.addUserToLeague(user);
 				}
@@ -63,46 +63,7 @@ public class App {
 			}
 		}
 	}
-	
-	private void rankUpSilverToGold(ArrayList<League> leagues) {
-		for (League league : leagues) {
-			if(league.getName().equals(LeagueName.Silver)) {
-				ArrayList<User> users=league.rankUpAndRemoveUsers();
-				League goldLeague=findLeagueByNameAndLanguage(leagues, league.getLanguageName(), LeagueName.Gold);
-				for (User user : users) {
-					goldLeague.addUserToLeague(user);
-				}
-				goldLeague.sortLeaderBoard();
-			}
-		}
-	}
-	
-	private void rankUpGoldToSapphire(ArrayList<League> leagues) {
-		for (League league : leagues) {
-			if(league.getName().equals(LeagueName.Gold)) {
-				ArrayList<User> users=league.rankUpAndRemoveUsers();
-				League sapphireLeague=findLeagueByNameAndLanguage(leagues, league.getLanguageName(), LeagueName.Sapphire);
-				for (User user : users) {
-					sapphireLeague.addUserToLeague(user);
-				}
-				sapphireLeague.sortLeaderBoard();
-			}
-		}
-	}
-	
-	private void rankUpSapphireToRubby(ArrayList<League> leagues) {
-		for (League league : leagues) {
-			if(league.getName().equals(LeagueName.Sapphire)) {
-				ArrayList<User> users=league.rankUpAndRemoveUsers();
-				League rubbyLeague=findLeagueByNameAndLanguage(leagues, league.getLanguageName(), LeagueName.Ruby);
-				for (User user : users) {
-					rubbyLeague.addUserToLeague(user);
-				}
-				rubbyLeague.sortLeaderBoard();
-			}
-		}
-	}
-	
+
 	private League findLeagueByNameAndLanguage(ArrayList<League> leagues,LanguageName languageName,LeagueName leagueName) {
 		for (League league : leagues) {
 			if(league.getLanguageName().equals(languageName) && league.getName().equals(leagueName)) {
