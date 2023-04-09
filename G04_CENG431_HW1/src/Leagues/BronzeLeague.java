@@ -15,11 +15,16 @@ public class BronzeLeague extends League {
 	public ArrayList<User> rankUpAndRemoveUsers() {
 		ArrayList<User> users=new ArrayList<>();
 		
-		for(int i=0;i<15;i++) {
+		int index=15;
+		if(getLeaderBoard().size()<index) {
+			index=getLeaderBoard().size();
+		}
+		
+		for(int i=0;i<index;i++) {
 			users.add(this.getLeaderBoard().get(i));
 		}
 		
-		this.removeUsersFromLeague(15);
+		this.removeUsersFromLeague(index);
 		
 		return users;
 	}

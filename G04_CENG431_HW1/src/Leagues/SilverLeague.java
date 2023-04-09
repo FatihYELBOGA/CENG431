@@ -16,11 +16,17 @@ public class SilverLeague extends League {
 	public ArrayList<User> rankUpAndRemoveUsers() {
 		ArrayList<User> users=new ArrayList<>();
 		
-		for(int i=0;i<10;i++) {
+		int index=10;
+		if(getLeaderBoard().size()<index) {
+			index=getLeaderBoard().size();
+		}
+		
+		
+		for(int i=0;i<index;i++) {
 			users.add(this.getLeaderBoard().get(i));
 		}
 		
-		this.removeUsersFromLeague(10);
+		this.removeUsersFromLeague(index);
 		
 		return users;
 	}

@@ -17,7 +17,12 @@ public class GoldLeague extends League {
 		
 		int count=0;
 		
-		for(int i=0;i<5;i++) {
+		int index=5;
+		if(getLeaderBoard().size()<index) {
+			index=getLeaderBoard().size();
+		}
+		
+		for(int i=0;i<index;i++) {
 			User user=this.getLeaderBoard().get(i);
 			if(user.getNumberOfDaysStreak()>=7) {
 				count+=1;
