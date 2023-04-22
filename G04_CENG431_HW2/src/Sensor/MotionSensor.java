@@ -1,11 +1,14 @@
 package Sensor;
 
+import SmartHome.SmartHome;
+
 public class MotionSensor extends Sensor{
 
+	private SmartHome smartHome;
+	
 	@Override
 	public boolean readStatus() {
-		// TODO Auto-generated method stub
-		return false;
+		return smartHome.getIsDoorLocked();
 	}
 
 	@Override

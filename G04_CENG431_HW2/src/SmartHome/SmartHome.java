@@ -12,38 +12,87 @@ import Sensor.TemperatureSensor;
 
 public class SmartHome {
 	
-	private LightSensor lightSensor;
+	private int celcius;
 	
-	private MotionSensor motionSensor;
+	//true means open
+	private boolean isLightOpen;
+
+	//true means locked
+	private boolean isDoorLocked;
 	
-	private TemperatureSensor temperatureSensor;
+	private Sensor lightSensor;
 	
-	private DoorLock doorLockActuator;
+	private Sensor motionSensor;
 	
-	private LightBulb lightBulbActuator;
+	private Sensor temperatureSensor;
 	
-	private Thermostat thermostatActuator;
+	private Actuator doorLockActuator;
+	
+	private Actuator lightBulbActuator;
+	
+	private Actuator thermostatActuator;
 	
 	private IControlPanel controlPanel;
 	
-	public int setTemperature(int celcius) {
-		return this.controlPanel.setTemperature(celcius);
-	}
-	
-	public boolean getIsOpen() {
+	public boolean lockDoor() {
+		if(!motionSensor.readStatus()) {
+			doorLockActuator.executeCommand(true);
+			return true;
+		}
 		return false;
 	}
 	
-	public boolean turnOnOffLight() {
-		boolean isOpen=lightSensor.readStatus();
-		
-		lightBulbActuator.executeCommand(!isOpen);
-		
-		return !isOpen;
+	public boolean unlockDoor() {
+		if(motionSensor.readStatus()) {
+			doorLockActuator.executeCommand(false);
+			return true;
+		}
+		return false;
 	}
 	
-	public boolean lockUnlockDoor() {
-		return this.controlPanel.lockUnlockDoor();
+	public boolean openDoor() {
+		if(!lightSensor.readStatus()) {
+			lightBulbActuator.executeCommand(true);
+		}
+		return false;
 	}
+	
+	public boolean closeDoor() {
+		if(lightSensor.readStatus()) {
+			lightBulbActuator.executeCommand(false);
+		}
+		return false;
+	}
+	
+	public int changeTemperature(int celcius) {
+		thermostatActuator.executeCommand(celcius);
+		return celcius;
+	}
+
+	public int getCelcius() {
+		return celcius;
+	}
+
+	public void setCelcius(int celcius) {
+		this.celcius = celcius;
+	}
+
+	public boolean getIsLightOpen() {
+		return isLightOpen;
+	}
+
+	public void setIsLightOpen(boolean isLightOpen) {
+		this.isLightOpen = isLightOpen;
+	}
+
+	public boolean getIsDoorLocked() {
+		return isDoorLocked;
+	}
+
+	public void setIsDoorLocked(boolean isDoorLocked) {
+		this.isDoorLocked = isDoorLocked;
+	}
+	
+	
 
 }

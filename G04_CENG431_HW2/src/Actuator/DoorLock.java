@@ -1,13 +1,14 @@
 package Actuator;
 
+import SmartHome.SmartHome;
+
 public class DoorLock extends Actuator{
 
-	private boolean isLocked;
+	private SmartHome smartHome;
 
 	@Override
 	public void executeCommand(boolean value) {
-		// TODO Auto-generated method stub
-		
+		smartHome.setIsDoorLocked(value);
 	}
 
 	@Override

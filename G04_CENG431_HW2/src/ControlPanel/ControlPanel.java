@@ -13,14 +13,25 @@ public class ControlPanel implements IControlPanel{
 	}
 
 	@Override
-	public boolean turnOnOffLight() {
-		return smartHome.turnOnOffLight();
+	public boolean turnOnLight() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public boolean lockUnlockDoor() {
+	public boolean turnOffLight() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public boolean unlockDoor() {
+		return smartHome.unlockDoor();
+	}
+
+	@Override
+	public boolean lockDoor() {
+		return smartHome.lockDoor();		
 	}
 
 }

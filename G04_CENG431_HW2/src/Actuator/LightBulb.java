@@ -1,17 +1,13 @@
 package Actuator;
 
+import SmartHome.SmartHome;
+
 public class LightBulb extends Actuator{
 	
-	private boolean isOpen;
+	private SmartHome smartHome;
 
-	
-	public boolean getIsOpen() {
-		return isOpen;
-	}
-	
 	@Override
-	public void executeCommand(boolean value) {
-		isOpen=value;	
+	public void executeCommand(boolean value) {	
 	}
 
 	@Override

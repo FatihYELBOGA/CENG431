@@ -6,11 +6,27 @@ public class User {
 	
 	private IControlPanel controlPanel;
 	
-	public boolean turnOnOffLight() {
-		return controlPanel.turnOnOffLight();
+	public int setTemperature(int celcius) {
+		return controlPanel.setTemperature(celcius);
 	}
 
-	public boolean lockUnlockDoor() {
-		return controlPanel.lockUnlockDoor();
+	
+	public boolean turnOnLight() {
+		return controlPanel.turnOnLight();
+	}
+
+	
+	public boolean turnOffLight() {
+		return controlPanel.turnOffLight();
+	}
+
+	
+	public boolean unlockDoor() {
+		return controlPanel.unlockDoor();
+	}
+
+	
+	public boolean lockDoor() {
+		return controlPanel.lockDoor();
 	}
 }

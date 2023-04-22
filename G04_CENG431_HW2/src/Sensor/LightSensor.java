@@ -1,11 +1,14 @@
 package Sensor;
 
+import SmartHome.SmartHome;
 
 public class LightSensor extends Sensor{
+	
+	private SmartHome smartHome;
 		
 	@Override
 	public boolean readStatus() {
-		return getSmartHome().getIsOpen();
+		return smartHome.getIsLightOpen();
 	}
 
 	@Override
