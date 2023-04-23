@@ -1,10 +1,6 @@
 package Actuator;
 
-import SmartHome.SmartHome;
-
 public class Thermostat extends Actuator{
-
-	private SmartHome smartHome;
 
 
 	@Override
@@ -14,7 +10,7 @@ public class Thermostat extends Actuator{
 
 	@Override
 	public void executeCommand(int value) {
-		smartHome.setCelcius(value);
+		getSmartHome().setCelcius(value);
 	}
 
 }

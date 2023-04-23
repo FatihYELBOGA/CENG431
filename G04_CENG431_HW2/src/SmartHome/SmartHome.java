@@ -34,6 +34,22 @@ public class SmartHome {
 	
 	private IControlPanel controlPanel;
 	
+	public SmartHome(int celcius,boolean isLightOpen,boolean isDoorLocked) {
+		this.celcius=celcius;
+		this.isLightOpen=isLightOpen;
+		this.isDoorLocked=isDoorLocked;
+		initDevices();
+	}
+	
+	private void initDevices() {
+		this.doorLockActuator=new DoorLock();
+		this.lightBulbActuator=new LightBulb();
+		this.thermostatActuator=new Thermostat();
+		this.lightSensor=new LightSensor();
+		this.motionSensor=new MotionSensor();
+		this.temperatureSensor=new TemperatureSensor();
+	}
+	
 	public boolean lockDoor() {
 		if(!motionSensor.readStatus()) {
 			doorLockActuator.executeCommand(true);
@@ -93,6 +109,8 @@ public class SmartHome {
 		this.isDoorLocked = isDoorLocked;
 	}
 	
-	
+	public IControlPanel getControlPanel() {
+		return this.controlPanel;
+	}
 
 }

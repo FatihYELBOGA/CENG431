@@ -9,5 +9,9 @@ public abstract class Actuator {
 	public abstract void executeCommand(boolean value);
 	
 	public abstract void executeCommand(int value);
+	
+	public SmartHome getSmartHome() {
+		return smartHome;
+	}
 
 }

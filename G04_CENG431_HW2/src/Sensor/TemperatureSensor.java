@@ -1,10 +1,8 @@
 package Sensor;
 
-import SmartHome.SmartHome;
 
 public class TemperatureSensor extends Sensor {
 	
-	private SmartHome smartHome;
 
 	@Override
 	public boolean readStatus() {
@@ -14,7 +12,7 @@ public class TemperatureSensor extends Sensor {
 
 	@Override
 	public int readValue() {
-		return smartHome.getCelcius();
+		return getSmartHome().getCelcius();
 	}
 
 }
