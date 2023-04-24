@@ -5,6 +5,7 @@ import Actuator.DoorLock;
 import Actuator.LightBulb;
 import Actuator.Thermostat;
 import ControlPanel.IControlPanel;
+import RandomGenerator.RandomGenerator;
 import Sensor.LightSensor;
 import Sensor.MotionSensor;
 import Sensor.Sensor;
@@ -34,10 +35,11 @@ public class SmartHome {
 	
 	private IControlPanel controlPanel;
 	
-	public SmartHome(int celcius,boolean isLightOpen,boolean isDoorLocked) {
-		this.celcius=celcius;
-		this.isLightOpen=isLightOpen;
-		this.isDoorLocked=isDoorLocked;
+	// random constructor
+	public SmartHome(RandomGenerator randomGenerator) {
+		this.isDoorLocked=randomGenerator.generateRandomBoolean();
+		this.isLightOpen=randomGenerator.generateRandomBoolean();
+		this.celcius=randomGenerator.generateRandomInterval(0, 30);
 		initDevices();
 	}
 	
@@ -66,14 +68,14 @@ public class SmartHome {
 		return false;
 	}
 	
-	public boolean openDoor() {
+	public boolean openLight() {
 		if(!lightSensor.readStatus()) {
 			lightBulbActuator.executeCommand(true);
 		}
 		return false;
 	}
 	
-	public boolean closeDoor() {
+	public boolean closeLight() {
 		if(lightSensor.readStatus()) {
 			lightBulbActuator.executeCommand(false);
 		}

@@ -14,5 +14,9 @@ public class RandomGenerator {
 		int randomInt = random.nextInt(upper-lower+1);
 		return randomInt+lower;
 	}
+	
+	public boolean generateRandomBoolean() {
+		return random.nextBoolean();
+	}
 
 }
