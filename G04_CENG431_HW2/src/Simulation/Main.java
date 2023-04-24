@@ -13,5 +13,4 @@ public class Main {
 		simulation.readSensorsWithTimerAndNumbers(1000, 20);
 		
 	}
-
 }

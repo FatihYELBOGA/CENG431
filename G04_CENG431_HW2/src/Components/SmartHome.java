@@ -9,12 +9,12 @@ public class SmartHome implements ISmartHome{
 	
 	private IRandomGenerator randomGenerator;
 	private IControlPanel controlPanel;
-	private LightSensor lightSensor;
-	private MotionSensor motionSensor;
-	private TemperatureSensor temperatureSensor;
-	private DoorLock doorLock;
-	private LightBlub lightBlub;
-	private Thermostat thermostat;
+	private Sensor lightSensor;
+	private Sensor motionSensor;
+	private Sensor temperatureSensor;
+	private Actuator doorLock;
+	private Actuator lightBlub;
+	private Actuator thermostat;
 	private int celcius;
 	private boolean lock;
 	private boolean light;
