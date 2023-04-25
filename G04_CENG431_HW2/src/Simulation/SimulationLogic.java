@@ -11,6 +11,8 @@ public class SimulationLogic implements ISimulationLogic{
 	private ISmartHome smartHome;
 	private IUser user;
 	private IRandomGenerator randomGenerator;
+	private Timer timer;
+	private TimerTask task;
 	
 	private int counter;
 	private int second = 1;
@@ -22,6 +24,8 @@ public class SimulationLogic implements ISimulationLogic{
 		this.user = user;
 		user.setControlPanel(this.smartHome.getControlPanel());
 		this.randomGenerator = new RandomGenerator();
+		this.timer = new Timer();
+		this.task = null;
 		
 	}
 	
@@ -29,8 +33,7 @@ public class SimulationLogic implements ISimulationLogic{
 	public void readSensorsWithTimerAndNumbers(int miliseconds, int number) {
 
 		counter = number;
-		Timer timer = new Timer();
-		TimerTask task = new TimerTask() {
+		task = new TimerTask() {
 			
 			@Override
 			public void run() {
