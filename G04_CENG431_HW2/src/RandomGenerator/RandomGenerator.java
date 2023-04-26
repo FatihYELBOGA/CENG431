@@ -4,7 +4,11 @@ import java.util.Random;
 
 public class RandomGenerator implements IRandomGenerator{
 	
-	private Random random = new Random();
+	private Random random;;
+	
+	public RandomGenerator() {
+		this.random = new Random();
+	}
 
 	@Override
 	public int generateCelcius() {
