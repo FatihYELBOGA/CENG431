@@ -48,12 +48,15 @@ public class SimulationLogic implements ISimulationLogic{
 				
 				switch(randomGenerator.generateUserOperation()) {
 					case 0:
-						while(true) {
-							int randomCelcius = randomGenerator.generateCelcius();
-							if(randomCelcius != smartHome.getCelcius()) {
-								user.changeTemperature(randomCelcius);	
-								break;
-							}
+						int randomCelcius = randomGenerator.generateCelcius();
+						if(randomCelcius<20) {
+							user.changeTemperature(randomCelcius+5);
+						}
+						else if(randomCelcius>25) {
+							user.changeTemperature(randomCelcius-5);
+						}
+						else {
+							user.changeTemperature(randomCelcius);
 						}
 						break;
 					case 1:

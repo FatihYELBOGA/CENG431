@@ -16,7 +16,6 @@ public class MotionSensor extends Sensor{
 		if(!super.getSmartHome().isLock())
 			lockStatus = "unlock";
 		System.out.println("Door Status: " + lockStatus);
-		
 	}
 
 }

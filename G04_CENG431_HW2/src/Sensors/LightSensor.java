@@ -14,8 +14,6 @@ public class LightSensor extends Sensor{
 		String lightStatus = "open";
 		if(!super.getSmartHome().isLight())
 			lightStatus = "close";
-		System.out.println("Light Status: " + lightStatus);
-		
+		System.out.println("Light Status: " + lightStatus);	
 	}
-
 }

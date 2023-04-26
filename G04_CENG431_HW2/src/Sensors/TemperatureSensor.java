@@ -13,4 +13,6 @@ public class TemperatureSensor extends Sensor{
 		System.out.println("Celcius: " + super.getSmartHome().getCelcius());
 	}
 
+
+
 }

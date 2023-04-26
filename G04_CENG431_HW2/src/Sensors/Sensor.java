@@ -11,7 +11,7 @@ public abstract class Sensor{
 	}
 	
 	public abstract void read();
-
+	
 	public ISmartHome getSmartHome() {
 		return smartHome;
 	}
