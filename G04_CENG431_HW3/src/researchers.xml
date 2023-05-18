@@ -1,0 +1,34 @@
+<researchers>
+  <researcher>
+    <researcher_name>Tugkan Tuglular</researcher_name>
+    <password>123</password>
+    <following_researcher_names>
+      
+    </following_researcher_names>
+    <follower_researcher_names>
+      <researcher_name>Dilek Ozturk</researcher_name>
+    </follower_researcher_names>
+  </researcher>
+  
+  <researcher>
+    <name>Dilek Ozturk</name>
+    <password>123</password>
+    <following_researcher_names>
+      <researcher_name>Tugkan Tuglular</researcher_name>
+    </following_researcher_names>
+    <follower_researcher_names>
+      <researcher_name>Serhat Caner</researcher_name>
+    </follower_researcher_names>
+  </researcher>
+  
+  <researcher>
+    <name>Serhat Caner</name>
+    <password>123</password>
+    <following_researcher_names>
+      <researcher_name>Tugkan Tuglular</researcher_name>
+      <researcher_name>Dilek Ozturk</researcher_name>
+    </following_researcher_names>
+    <follower_researcher_names>
+    </follower_researcher_names>
+  </researcher>
+</researchers>
