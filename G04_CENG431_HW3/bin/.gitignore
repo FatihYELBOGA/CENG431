@@ -1,3 +1,10 @@
-/Homework3/
-/researchers.xml
-/lib/
+/.DS_Store
+/ReadingList/
+/Researcher/
+/Views/
+/Main/
+/Controllers/
+/DownloadPaperController.class
+/Models/
+/Paper/
+/Bib/
