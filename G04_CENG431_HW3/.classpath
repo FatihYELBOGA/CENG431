@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/G04_CENG431_HW3/src/lib/jbibtex-1.0.20.jar"/>
-	<classpathentry kind="lib" path="/Users/berkay/Desktop/CENG431/G04_CENG431_HW3/src/lib/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="/G04_CENG431_HW3/src/lib/json-simple-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
