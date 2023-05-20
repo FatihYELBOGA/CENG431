@@ -8,7 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.jbibtex.TokenMgrException;
 import org.xml.sax.SAXException;
 
-public class main {
+public class Main {
 
 	
 	public static void main(String[] args) throws TokenMgrException, ParseException, org.jbibtex.ParseException, ParserConfigurationException, SAXException, IOException, org.json.simple.parser.ParseException {
