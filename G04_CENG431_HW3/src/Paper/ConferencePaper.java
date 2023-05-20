@@ -24,6 +24,10 @@ public class ConferencePaper extends Paper{
 		this.bookTitle = bookTitle;
 	}
 	
+	public String otherStrings() {
+		return this.bookTitle;
+	}
+	
 	public String toString() {
 		StringBuilder stringBuilder=new StringBuilder();
 		stringBuilder.append("conference paper,");
@@ -36,7 +40,8 @@ public class ConferencePaper extends Paper{
 		stringBuilder.append(","+this.getTitle()+",");
 		stringBuilder.append(this.getYear()+",");
 		stringBuilder.append(this.getDoi()+",");
-		stringBuilder.append(this.getBookTitle());
+		stringBuilder.append(this.getBookTitle()+",");
+		stringBuilder.append(this.getNumberOfDownloads());
 		return stringBuilder.toString();
 	}
 

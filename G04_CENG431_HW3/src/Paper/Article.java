@@ -48,7 +48,9 @@ public class Article extends Paper{
 	public void setJournal(String journal) {
 		this.journal = journal;
 	}
-	
+	public String otherStrings() {
+		return this.journal+this.number+this.volume;
+	}
 	public String toString() {
 		StringBuilder stringBuilder=new StringBuilder();
 		stringBuilder.append("article,");
@@ -63,7 +65,8 @@ public class Article extends Paper{
 		stringBuilder.append(this.getVolume()+",");
 		stringBuilder.append(this.getNumber()+",");
 		stringBuilder.append(this.getDoi()+",");
-		stringBuilder.append(this.getJournal());
+		stringBuilder.append(this.getJournal()+",");
+		stringBuilder.append(this.getNumberOfDownloads());
 		return stringBuilder.toString();
 	}
 	

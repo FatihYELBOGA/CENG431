@@ -16,6 +16,7 @@ public class MainView implements Observer {
     private JButton button3;
     private JButton button4;
     private JButton button5;
+    private JTextArea textArea;
 
     public MainView() {
     	JFrame frame = new JFrame("Main Page");
@@ -23,7 +24,8 @@ public class MainView implements Observer {
         frame.setSize(1000, 500);
 
         JPanel panel = new JPanel(new GridLayout(1, 6));
-
+         textArea = new JTextArea();
+        panel.add(textArea);
          button1 = new JButton("Download Paper");
          button2 = new JButton("Create Reading List");
          button3 = new JButton("View Reading Lists");

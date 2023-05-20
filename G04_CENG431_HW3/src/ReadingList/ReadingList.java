@@ -1,9 +1,12 @@
 package ReadingList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import Paper.Paper;
@@ -34,12 +37,13 @@ public class ReadingList {
 		jo.put("creator_researcher_name",researcher.getName());
 		jo.put("readinglist_name",name);
 		jo.put("number_of_papers",papers.size());
-        Map m = new LinkedHashMap(papers.size());
-        
+     
+        JSONArray jsArray = new JSONArray();
         for (Paper paper : papers) {
-			m.put("paper_name", paper.getTitle());
-		}
-        jo.put("name_of_ papers", m);
+        	jsArray.add(paper.getTitle());
+        }
+     
+        jo.put("name_of_papers", jsArray);
 		return jo;
 	}
 	
@@ -75,5 +79,17 @@ public class ReadingList {
 	public void setPapers(ArrayList<Paper> papers) {
 		this.papers = papers;
 	}
-	
+
+	public String toString() {
+		StringBuilder stringBuilder=new StringBuilder();
+		StringBuilder stringBuilder2=new StringBuilder();
+		for (Paper paper : papers) {
+			stringBuilder2.append(paper.getTitle()+"\n");
+		}
+		stringBuilder.append("id:"+id+"\n");
+		stringBuilder.append("name: "+name+"\n");
+		stringBuilder.append("Researcher: "+researcher.getName()+"\n");
+		stringBuilder.append("Papers: "+stringBuilder2+"\n");
+		return stringBuilder.toString();
+	}
 }

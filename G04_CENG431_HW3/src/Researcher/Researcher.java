@@ -25,6 +25,14 @@ public class Researcher {
 		this.readingListNames = readingListNames;
 	}
 	
+	public static Researcher findResearcherByName(String name,ArrayList<Researcher> researchers) {
+		for (Researcher researcher : researchers) {
+			if(researcher.getName().equals(name)) {
+				return researcher;
+			}
+		}
+		return null;
+	}
 
 	public String getName() {
 		return name;

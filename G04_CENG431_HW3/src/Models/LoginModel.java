@@ -3,7 +3,9 @@ package Models;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import ReadingList.ReadingList;
 import Researcher.Researcher;
+import Views.ViewReadingListsView;
 
 public class LoginModel extends Observable {
     private String researcherName;

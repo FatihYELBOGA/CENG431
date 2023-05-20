@@ -24,7 +24,7 @@ public class DownloadPaperView implements Observer{
     public DownloadPaperView(String[] papers,Paper firstPaper) {
         frame = new JFrame("Download Paper");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        frame.setSize(1000, 500);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
 
@@ -45,7 +45,7 @@ public class DownloadPaperView implements Observer{
         paperAuthorName = new JTextArea(firstPaper.getAuthorsString());
         centerPanel.add(new JScrollPane(paperAuthorName));
 
-        paperOtherInformations = new JTextArea(firstPaper.getYear()+", "+firstPaper.getDoi());
+        paperOtherInformations = new JTextArea(firstPaper.getYear()+", "+firstPaper.getDoi()+", "+firstPaper.otherStrings());
         centerPanel.add(new JScrollPane(paperOtherInformations));
 
         mainPanel.add(centerPanel, BorderLayout.CENTER);
@@ -53,7 +53,7 @@ public class DownloadPaperView implements Observer{
         // Bottom Panel
         JPanel bottomPanel = new JPanel();
         downloadButton = new JButton("Download");
-        logoutButton = new JButton("Logout");
+        logoutButton = new JButton("Back");
 
         bottomPanel.add(downloadButton);
         bottomPanel.add(logoutButton);  
@@ -88,13 +88,12 @@ public class DownloadPaperView implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
 		paperTitle.setText(((DownloadPaperModel)o).getCurrentPaper().getTitle());
 	
 		paperAuthorName.setText(((DownloadPaperModel)o).getCurrentPaper().getAuthorsString());
 		
 		paperOtherInformations.setText(
-				((DownloadPaperModel)o).getCurrentPaper().getYear()+","+((DownloadPaperModel)o).getCurrentPaper().getDoi());
+				((DownloadPaperModel)o).getCurrentPaper().getYear()+","+((DownloadPaperModel)o).getCurrentPaper().getDoi()+", "+((DownloadPaperModel)o).getCurrentPaper().otherStrings());
 
 		
 	}

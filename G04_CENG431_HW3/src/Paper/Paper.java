@@ -1,5 +1,8 @@
 package Paper;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public abstract class Paper {
 	
 	private String[] author;
@@ -9,13 +12,27 @@ public abstract class Paper {
 	private int year;
 	
 	private String doi;
+	
+	private int numberOfDownloads;
+	
+	private Random random;
 
 	public Paper(String[] author, String title, int year, String doi) {
-		super();
+		this.random=new Random();
 		this.author = author;
 		this.title = title;
 		this.year = year;
 		this.doi = doi;
+		numberOfDownloads=random.nextInt(1500);
+	}
+	
+	public static Paper findPaperByTitle(String name,ArrayList<Paper> papers) {
+		for (Paper paper : papers) {
+			if(paper.getTitle().equals(name)) {
+				return paper;
+			}
+		}
+		return null;
 	}
 
 	public String[] getAuthor() {
@@ -58,7 +75,13 @@ public abstract class Paper {
 		this.doi = doi;
 	}
 	
+	public int getNumberOfDownloads() {
+		return numberOfDownloads;
+	}
 	
+	public String otherStrings() {
+		return this.title;
+	}
 
 
 }
