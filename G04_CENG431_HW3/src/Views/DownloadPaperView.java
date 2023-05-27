@@ -9,6 +9,7 @@ import Paper.Paper;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -21,11 +22,13 @@ public class DownloadPaperView implements Observer{
     private JButton downloadButton;
     private JButton logoutButton;
 
-    public DownloadPaperView(String[] papers,Paper firstPaper) {
+    private ArrayList<Paper> papers;
+    
+    public DownloadPaperView(String[] papers,Paper firstPaper,ArrayList<Paper> papersList) {
         frame = new JFrame("Download Paper");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 500);
-
+        this.papers=papersList;
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         // Top Panel
@@ -62,6 +65,10 @@ public class DownloadPaperView implements Observer{
 
         frame.getContentPane().add(mainPanel);
         frame.setVisible(false);
+    }
+    
+    public ArrayList<Paper> getPapers(){
+    	return this.papers;
     }
     
     public void downloadPageAction(DownloadPaperController downloadPaperController) {

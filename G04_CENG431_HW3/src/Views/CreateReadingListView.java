@@ -27,7 +27,7 @@ public class CreateReadingListView implements Observer{
     private JButton backButton;
 
     public CreateReadingListView(ArrayList<Paper> papers) {
-        frame = new JFrame("My Page");
+        frame = new JFrame("Create Reading List Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 500);
 

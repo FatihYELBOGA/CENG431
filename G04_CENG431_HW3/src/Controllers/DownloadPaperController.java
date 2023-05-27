@@ -5,8 +5,12 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import FileIO.FileDownload;
+import FileIO.FileWriterC;
 import Models.DownloadPaperModel;
+import Paper.Paper;
 import Views.DownloadPaperView;
 import Views.MainView;
 
@@ -36,9 +40,17 @@ public class DownloadPaperController implements ActionListener{
 		}
 		else if(e.getActionCommand().equals("Download")) {
 			String filePath = new File("").getAbsolutePath();
-			System.out.println(downloadPaperView.getComboBox().getSelectedIndex());
+			String fileNameString=this.downloadPaperView.getPapers().get(downloadPaperView.getComboBox().getSelectedIndex()).getPathName();
 			try {
-				//FileDownload.initDownload(null, null);
+				FileDownload.initDownload(filePath.concat("/src/Homework3/"+fileNameString),filePath.concat("/src/DownloadedFiles/"));
+	            JOptionPane.showMessageDialog(null, "File downloaded successfully", "Error", JOptionPane.INFORMATION_MESSAGE);
+	            for (Paper paper : this.downloadPaperView.getPapers()) {
+					if(paper.getPathName().equals(filePath)) {
+						paper.incrementNumberOfDownloads();
+					}
+				}
+	            
+	            FileWriterC.writeBibFilesToCSV(filePath.concat("/src/papers.csv"), this.downloadPaperView.getPapers());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

@@ -9,8 +9,8 @@ public class Article extends Paper{
 	private String journal;
 
 	public Article(String[] author, String title, int year, String doi,
-			int volume,String number,String journal) {
-		super(author, title, year, doi);
+			int volume,String number,String journal,String pathName) {
+		super(author, title, year, doi,pathName);
 		this.volume=volume;
 		this.number=number;
 		this.journal=journal;
@@ -19,7 +19,7 @@ public class Article extends Paper{
 	//copy constructor
 	public Article(String string) {
  		super(string.split(",")[1].split(";"), string.split(",")[2],
- 				Integer.parseInt(string.split(",")[3]),string.split(",")[6]);
+ 				Integer.parseInt(string.split(",")[3]),string.split(",")[6],string.split(",")[7]);
  		this.volume=Integer.parseInt(string.split(",")[4]);
  		this.number=string.split(",")[5];
  		this.journal=string.split(",")[7];

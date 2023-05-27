@@ -33,14 +33,15 @@ public class BibHelper {
        ArrayList<Paper> papers=new ArrayList<>();
        for (File file : files) {
 		if(file.getName().endsWith(".bib")) {
-			papers.add(readBibFile(file));
+			
+			papers.add(readBibFile(file,(file.getName().substring(0, file.getName().length()-4))+".pdf"));
 		}
 	}
 
        return papers;
    }
 
-   private Paper readBibFile(File file) 
+   private Paper readBibFile(File file,String pathName) 
 		   throws FileNotFoundException, TokenMgrException, ParseException {
 	   Reader inputStream = new FileReader(file);
 	   BibTeXParser parser = new BibTeXParser();
@@ -57,10 +58,10 @@ public class BibHelper {
            Value doiValue = entry.getField(BibTeXEntry.KEY_DOI);
 
            if(file.getName().startsWith("IP")) {
-        	   paper= readConferencePaper(entry,author,titleValue,yearValue,doiValue);
+        	   paper= readConferencePaper(entry,author,titleValue,yearValue,doiValue,pathName);
            }
            else {
-        	   paper= readArticlePaper(entry,author,titleValue,yearValue,doiValue);
+        	   paper= readArticlePaper(entry,author,titleValue,yearValue,doiValue,pathName);
            }
            
            
@@ -69,19 +70,19 @@ public class BibHelper {
        }
    
    private ConferencePaper readConferencePaper(BibTeXEntry bibTeXEntry,
-		   String[] author, Value titleValue,Value yearValue,Value doiValue) {
+		   String[] author, Value titleValue,Value yearValue,Value doiValue,String pathName) {
        
        Value bookTitleValue = bibTeXEntry.getField(BibTeXEntry.KEY_BOOKTITLE);
        
        return new ConferencePaper(author, titleValue.toUserString(), 
     		   Integer.parseInt(yearValue.toUserString()),
-    		   doiValue.toUserString(), bookTitleValue.toUserString());
+    		   doiValue.toUserString(), bookTitleValue.toUserString(),pathName);
 
 
    }
    
    private Article readArticlePaper(BibTeXEntry bibTeXEntry,
-		   String[] author,Value titleValue,Value yearValue,Value doiValue) {
+		   String[] author,Value titleValue,Value yearValue,Value doiValue,String pathName) {
        
 	   Value volumeValue = bibTeXEntry.getField(BibTeXEntry.KEY_VOLUME);
 	   Value numberValue = bibTeXEntry.getField(BibTeXEntry.KEY_NUMBER);
@@ -97,6 +98,6 @@ public class BibHelper {
        return new Article(author, titleValue.toUserString(),
     		   Integer.parseInt( yearValue.toUserString()), 
     		   doiString, Integer.parseInt(volumeValue.toUserString()), 
-    		   numberValue.toUserString(), journalValue.toUserString());
+    		   numberValue.toUserString(), journalValue.toUserString(),pathName);
    }
 }

@@ -16,14 +16,27 @@ public abstract class Paper {
 	private int numberOfDownloads;
 	
 	private Random random;
+	
+	private String pathName;
 
-	public Paper(String[] author, String title, int year, String doi) {
+	public Paper(String[] author, String title, int year, String doi,String pathName) {
 		this.random=new Random();
 		this.author = author;
 		this.title = title;
 		this.year = year;
 		this.doi = doi;
+		this.pathName=pathName;
 		numberOfDownloads=random.nextInt(1500);
+	}
+	
+	public Paper(String[] author, String title, int year, String doi,String pathName,int numberOfDownload) {
+		this.random=new Random();
+		this.author = author;
+		this.title = title;
+		this.year = year;
+		this.doi = doi;
+		this.pathName=pathName;
+		this.numberOfDownloads=numberOfDownload;
 	}
 	
 	public static Paper findPaperByTitle(String name,ArrayList<Paper> papers) {
@@ -33,6 +46,10 @@ public abstract class Paper {
 			}
 		}
 		return null;
+	}
+	
+	public String getPathName() {
+		return this.pathName;
 	}
 
 	public String[] getAuthor() {
@@ -77,6 +94,10 @@ public abstract class Paper {
 	
 	public int getNumberOfDownloads() {
 		return numberOfDownloads;
+	}
+	
+	public void incrementNumberOfDownloads() {
+		this.numberOfDownloads+=1;
 	}
 	
 	public String otherStrings() {

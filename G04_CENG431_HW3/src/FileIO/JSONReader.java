@@ -26,7 +26,7 @@ public class JSONReader {
 		this.researchers=researchers;
 	}
 	
-	public  boolean isFileExist(String fileName) {
+	public static boolean isFileExist(String fileName) {
 		File file=new File(fileName);
 		return file.exists();
 	}
