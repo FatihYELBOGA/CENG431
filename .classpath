@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="G04_CENG431_HW1/src"/>
+	<classpathentry kind="src" path="G04_CENG431_HW2/src"/>
+	<classpathentry kind="src" path="G04_CENG431_HW3/src"/>
+	<classpathentry kind="lib" path="G04_CENG431_HW3/bin/lib/jbibtex-1.0.20.jar"/>
+	<classpathentry kind="lib" path="G04_CENG431_HW3/bin/lib/json-simple-1.1.jar"/>
+	<classpathentry kind="output" path="G04_CENG431_HW1/out/production/G04_CENG431_HW1"/>
+</classpath>
